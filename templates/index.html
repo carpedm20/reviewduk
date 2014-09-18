@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="intro">
+  <div class="intro-body">
+  <div class="container">
+  <div class="row">
+   <div class="col-md-8 col-md-offset-2">
+     <h1 class="brand-heading"><img src="img/cldi_white.png" width="160px"/></h1>
+     <p class="intro-text">Advanced visual concept recognition company</p>
+     <div class="page-scroll">
+     <a href="#about" class="btn btn-circle">
+     <i class="fa fa-angle-double-down animated"></i>
+     </a>
+     </div>
+   </div>
+  </div>
+  </div>
+  </div>
+</section>
+
+<section class="demo">
+  <div class="demo-body">
+  <div class="container">
+  <div class="row">
+   <div class="col-md-8 col-md-offset-2">
+     {% include 'demo.html' %}
+   </div>
+  </div>
+  </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="contact-body">
+  <div class="container">
+  <div class="row">
+   <div class="col-md-8 col-md-offset-2">
+     {% include 'demo.html' %}
+   </div>
+  </div>
+  </div>
+  </div>
+</section>
+
+{% endblock %}

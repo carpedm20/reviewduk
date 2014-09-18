@@ -1,0 +1,68 @@
+
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>DodMe</title>
+  <!--
+    start : 2014-09-18 13:25
+                                   _           ____   ___
+      ___ __ _ _ __ _ __   ___  __| |_ __ ___ |___ \ / _ \
+     / __/ _` | '__| '_ \ / _ \/ _` | '_ ` _ \  __) | | | |
+    | (__ (_| | |  | |_) |  __/ (_| | | | | | |/ __/| |_| |
+     \___\__,_|_|  | .__/ \___|\__,_|_| |_| |_|_____|\___/
+                   |_|
+
+    end  : 2014-??-??
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css">
+    <link href="{% static 'css/flat-ui.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+    </style>
+
+    <meta name="og:site_name" content="ReviewDuk"/>
+    <meta name="fb:page_id" content="" />
+    <meta name="og:image" content=""/>
+
+    <meta name="og:title" content="ReviewDuk"/>
+    <meta name="og:description" content="세상의 모든 리뷰에서 감성을 찾다"/>
+    <meta name="og:url" content="http://www.reviewduk.com/"/>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav">
+            <li><a href="#">ReviewDuk</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Demo</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    {% block content%} {% endblock %}
+
+    {% include 'contact.html' %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
