@@ -1,0 +1,25 @@
+{% verbatim %}
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="media">
+      <a class="pull-left" href="#">
+        <img class="media-object img-rounded" data-src="holder.js/64x64" alt="64x64" src="https://avatars3.githubusercontent.com/u/3346407?v=2&s=460" style="width: 64px; height: 64px;">
+      </a>
+      <div class="media-body">
+        {{ review.text }}
+        <!--<div class="tags">
+          <span class="glyphicon glyphicon-tags"></span>
+          <a href="http://tumbootstrap.tumblr.com/tagged/bolt" class="label label-default">bolt</a>
+          <a href="http://tumbootstrap.tumblr.com/tagged/disney" class="label label-default">disney</a>
+        </div>-->
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <p>긍정 부정 분석기</p>
+    <div class="progress">
+      <div class="progress-bar" style="width: {{ review.pred*20 }}%;"></div>
+    </div>
+  </div>
+</div>
+{% endverbatim %}

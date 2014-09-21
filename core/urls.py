@@ -11,4 +11,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^$', views.index, name='index'),
+    url(r'^r/get/(?P<count>\d+)$', views.get_review, name='get_review'),
+    url(r'^r/predict$', views.get_prediction, name='get_prediction'),
 )

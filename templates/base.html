@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="reviewApp" ng-controller="reviewController" ng-csp>
   <head>
     <meta charset="utf-8">
     <title>DodMe</title>
@@ -25,6 +25,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css">
     <link href="{% static 'css/flat-ui.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/loading-bar.css' %}" rel="stylesheet">
 
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <style>
@@ -44,24 +45,30 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
-          <ul class="nav navbar-nav">
-            <li><a href="#">ReviewDuk</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Demo</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+    <div class="container">
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+            <ul class="nav navbar-nav">
+              <li><a href="#">ReviewDuk</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Demo</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
 
-    {% block content%} {% endblock %}
-
+      {% block content%} {% endblock %}
+    </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular-animate.min.js"></script>
+    <script src="{% static 'js/loading-bar.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
   </body>
 </html>
