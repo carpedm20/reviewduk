@@ -27,17 +27,17 @@ def get_sample(count = 10):
 
         outf.writelines(lines[:count])
 
-def readSampleFile():
+def readSampleFile(file_name = settings.SAMPLE):
     sample = []
-    with open(settings.SAMPLE, 'rb') as csvfile:
+    with open(file_name, 'rb') as csvfile:
         predictions = csv.reader(csvfile, delimiter=' ', quotechar='|')
         for row in predictions:
             sample.append((row[1][1:], row[2][2:-2]))
     return sample
 
-def readPredictFile():
+def readPredictFile(file_name = settings.PREDICT):
     y_pred = []
-    with open(settings.PREDICT, 'rb') as csvfile:
+    with open(file_name, 'rb') as csvfile:
         predictions = csv.reader(csvfile, delimiter=' ', quotechar='|')
         for row in predictions:
             pred = parseStr(row[0])

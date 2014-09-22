@@ -12,6 +12,7 @@ var reviewApp = angular.module('reviewApp',['wu.masonry','angular-loading-bar'])
           columnWidth: '.review',                
         });*/
         $('div.raty').raty({
+          size: 20,
           path: '/static/img',
           score: function() {
             return $(this).attr('data-score');
@@ -31,7 +32,7 @@ reviewApp.controller('reviewController', function($scope, $http) {
   $scope.reviews = [];
 
   //$http.get('/r/get/20').success(function(data) {
-  $http.get('/r/cached/20').success(function(data) {
+  $http.get('/r/cached/30').success(function(data) {
     reviews = data.data;
     $scope.reviews = data.data;
   });

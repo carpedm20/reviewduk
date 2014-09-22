@@ -25,6 +25,7 @@ TOTAL_SAMPLE = MODEL_DIR + "/total_sample.vw"
 MODEL = MODEL_DIR + "/w_model.vw"
 TRAIN = MODEL_DIR + "/n_train.vw"
 PREDICT = MODEL_DIR + "/predict.vw"
+TEST = MODEL_DIR + "/test.vw"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

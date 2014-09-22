@@ -3,6 +3,8 @@
 .progress {
   height: 17px;
   margin-bottom: 10px;
+  margin-top: 8px;
+  padding: 0;
 }
 .predict {
   padding: 0px 20px 0px 20px;
@@ -10,7 +12,7 @@
 </style>
 <div class="media">
   <a class="pull-left" href="#">
-    <img class="poster media-object img-rounded" title="{{ review.poster[1] }}" ng-src="{{ review.poster[0] }}" style="width: 120px;">
+    <img class="poster media-object img-rounded" title="{{ review.poster[1] }}" ng-src="{{ review.poster[0] }}" style="width: 100px;">
   </a>
   <div class="media-body">
     <div class="panel panel-default">
@@ -18,16 +20,41 @@
         {{ review.text }}
       </div>
       <div class="panel-footer">
-        <div class="predict row">
-          <div class="raty pull-right" data-score="{{ review.pred }}"></div>
-          <div class="raty" data-score="{{ review.original }}"></div>
+        <!--<div class="predict row">
+          <div class="btn btn-md btn-default pull-right"
+               ng-class="{'btn-danger':review.pred==1,
+                          'btn-warning': review.pred==2,
+                          'btn-success': review.pred==3,
+                          'btn-info': review.pred==5}">
+            <div class="raty" data-score="{{ review.pred }}"></div>
+          </div>
+          <div class="btn btn-md btn-default"
+               ng-class="{'btn-danger':review.original==1,
+                          'btn-warning': review.original==2,
+                          'btn-success': review.original==3,
+                          'btn-info': review.original==5}">
+            <div class="raty" data-score="{{ review.original }}"></div>
+          </div>
+        </div>-->
+        <div class="row">
+          <label class="col-sm-3">유저 평가</label>
+          <div class="progress col-sm-8">
+            <div ng-class="{'progress-bar-danger':review.original==1,
+                            'progress-bar-warning': review.original==2,
+                            'progress-bar-success': review.original==3,
+                            'progress-bar-info': review.original==5}"
+                  class="progress-bar" style="width: {{ review.original*20 }}%;"></div>
+          </div>
         </div>
-        <div class="progress">
-          <div ng-class="{'progress-bar-danger':review.pred==1,
-                          'progress-bar-warning': review.pred==2,
-                          'progress-bar-success': review.pred==3,
-                          'progress-bar-info': review.pred==5}"
-                class="progress-bar" style="width: {{ review.pred*20 }}%;"></div>
+        <div class="row">
+          <label class="col-sm-3">예측 평가</label>
+          <div class="progress col-sm-8">
+            <div ng-class="{'progress-bar-danger':review.pred==1,
+                            'progress-bar-warning': review.pred==2,
+                            'progress-bar-success': review.pred==3,
+                            'progress-bar-info': review.pred==5}"
+                  class="progress-bar" style="width: {{ review.pred*20 }}%;"></div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 import os
 import random
 import subprocess
@@ -7,6 +8,7 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
 
 from utils.func import *
 
@@ -20,6 +22,7 @@ def index(request):
 
     return render(request, template)
 
+@csrf_exempt
 def get_prediction(request):
     global environmentDict, predictCommand
     template = 'index.html'
@@ -29,13 +32,18 @@ def get_prediction(request):
     else:
         response_dict = {}
 
-        with open(settings.PREDICT, 'w') as predict:
+        text = request.POST.get("text","")
+
+        with open(settings.TEST, 'w') as predict:
             predict.write('1 1 |f %s |a %s' % (text, len(text)))
 
-        subprocess.call(predictCommand, env=environmentDict)
+        command = ("vw -t -d %s -i %s -p %s" % (settings.TEST,
+                                                settings.MODEL,
+                                                'out.vw')).split(' ')
+        subprocess.call(command, env=environmentDict)
 
-        samples = readSampleFile()
-        predictions = readPredictFile()
+        samples = readSampleFile(settings.TEST)
+        predictions = readPredictFile('out.vw')
 
         response_dict['data'] = [{'text':text, 'pred':pred} for text,pred in zip(samples, predictions)]
 
