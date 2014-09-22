@@ -1,9 +1,16 @@
 {% verbatim %}
+<style>
+.progress {
+  height: 17px;
+  margin-bottom: 10px;
+}
+</style>
+<div class="col-sm-6 col-xs-12">
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="media">
       <a class="pull-left" href="#">
-        <img class="media-object img-rounded" data-src="holder.js/64x64" alt="64x64" src="https://avatars3.githubusercontent.com/u/3346407?v=2&s=460" style="width: 64px; height: 64px;">
+        <img class="poster media-object img-rounded" title="{{ review.poster[1] }}" ng-src="{{ review.poster[0] }}" style="height: 170px;">
       </a>
       <div class="media-body">
         {{ review.text }}
@@ -16,10 +23,14 @@
     </div>
   </div>
   <div class="panel-footer">
-    <p>긍정 부정 분석기</p>
     <div class="progress">
-      <div class="progress-bar" style="width: {{ review.pred*20 }}%;"></div>
+      <div ng-class="{'progress-bar-danger':review.pred==1,
+                      'progress-bar-warning': review.pred==2,
+                      'progress-bar-success': review.pred==3,
+                      'progress-bar-info': review.pred==5}"
+            class="progress-bar" style="width: {{ review.pred*20 }}%;"></div>
     </div>
   </div>
+</div>
 </div>
 {% endverbatim %}

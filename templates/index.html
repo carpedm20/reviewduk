@@ -4,7 +4,7 @@
   <div>
     {% include 'review_input.html' %}
   </div>
-  <div ng-repeat="review in reviews">
+  <div ng-repeat="review in reviews" review-directive>
     {% include 'review.html' %}
   </div>
 {% endblock %}

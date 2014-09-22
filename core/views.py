@@ -51,6 +51,9 @@ def get_review(request, count):
     samples = readSampleFile()
     predictions = readPredictFile()
 
-    response_dict['data'] = [{'text':text, 'pred':pred} for text,pred in zip(samples, predictions)]
+    response_dict['data'] = [{'poster': poster_url(rev[0]),
+                              'code':rev[0],
+                              'text':rev[1],
+                              'pred':pred} for rev,pred in zip(samples, predictions)]
 
     return HttpResponse(simplejson.dumps(response_dict), mimetype='application/; charset=utf-8')

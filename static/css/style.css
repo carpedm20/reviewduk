@@ -1,4 +1,7 @@
 /* bootstrap wrapper */
+body {
+  font-family: 'Nanum Barun Gothic', sans-serif;
+}
 .glyphicon {
   top: 4px !important;
 }
@@ -10,7 +13,7 @@
 /* Customize container */
 @media (min-width: 768px) {
   .container {
-    max-width: 730px;
+    /*max-width: 730px;*/
   }
 }
 .container-narrow > hr {
