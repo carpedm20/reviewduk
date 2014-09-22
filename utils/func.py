@@ -11,8 +11,11 @@ parseStr = lambda x: float(x) if '.' in x else int(x)
 
 def poster_url(code):
     b = BeautifulSoup(requests.get('http://movie.naver.com/movie/bi/mi/photoViewPopup.nhn?movieCode='+code).text)
-    img = b.find('img')
-    return [img['src'], img['alt']] or ''
+    try:
+        img = b.find('img')
+        return [img['src']+"?type=m203_290_2", img['alt']]
+    except:
+        return ['http://static.naver.net/movie/2012/06/dft_img203x290.png','']
 
 def get_sample(count = 10):
     train_name = settings.TRAIN

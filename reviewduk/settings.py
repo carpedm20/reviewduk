@@ -21,6 +21,7 @@ SECRET_KEY = '3gs$=o4pe7(foa$1yh0^wac^-$&90m=6vyglu(_+6v9cigr=_='
 MODEL_DIR = 'vw_models'
 
 SAMPLE = MODEL_DIR + "/sample.vw"
+TOTAL_SAMPLE = MODEL_DIR + "/total_sample.vw"
 MODEL = MODEL_DIR + "/w_model.vw"
 TRAIN = MODEL_DIR + "/n_train.vw"
 PREDICT = MODEL_DIR + "/predict.vw"

@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div>
+  <div class="col-xs-12">
     {% include 'review_input.html' %}
   </div>
-  <div ng-repeat="review in reviews" review-directive>
-    {% include 'review.html' %}
+  <div id="reviews" class="col-xs-12" masonry="{ transitionDuration: '0.4s' }">
+    <div class="review col-sm-6" ng-repeat="review in reviews" review-directive>
+      {% include 'review.html' %}
+    </div>
   </div>
 {% endblock %}

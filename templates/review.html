@@ -4,33 +4,33 @@
   height: 17px;
   margin-bottom: 10px;
 }
+.predict {
+  padding: 0px 20px 0px 20px;
+}
 </style>
-<div class="col-sm-6 col-xs-12">
-<div class="panel panel-default">
-  <div class="panel-body">
-    <div class="media">
-      <a class="pull-left" href="#">
-        <img class="poster media-object img-rounded" title="{{ review.poster[1] }}" ng-src="{{ review.poster[0] }}" style="height: 170px;">
-      </a>
-      <div class="media-body">
+<div class="media">
+  <a class="pull-left" href="#">
+    <img class="poster media-object img-rounded" title="{{ review.poster[1] }}" ng-src="{{ review.poster[0] }}" style="width: 120px;">
+  </a>
+  <div class="media-body">
+    <div class="panel panel-default">
+      <div class="panel-body">
         {{ review.text }}
-        <!--<div class="tags">
-          <span class="glyphicon glyphicon-tags"></span>
-          <a href="http://tumbootstrap.tumblr.com/tagged/bolt" class="label label-default">bolt</a>
-          <a href="http://tumbootstrap.tumblr.com/tagged/disney" class="label label-default">disney</a>
-        </div>-->
+      </div>
+      <div class="panel-footer">
+        <div class="predict row">
+          <div class="raty pull-right" data-score="{{ review.pred }}"></div>
+          <div class="raty" data-score="{{ review.original }}"></div>
+        </div>
+        <div class="progress">
+          <div ng-class="{'progress-bar-danger':review.pred==1,
+                          'progress-bar-warning': review.pred==2,
+                          'progress-bar-success': review.pred==3,
+                          'progress-bar-info': review.pred==5}"
+                class="progress-bar" style="width: {{ review.pred*20 }}%;"></div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="panel-footer">
-    <div class="progress">
-      <div ng-class="{'progress-bar-danger':review.pred==1,
-                      'progress-bar-warning': review.pred==2,
-                      'progress-bar-success': review.pred==3,
-                      'progress-bar-info': review.pred==5}"
-            class="progress-bar" style="width: {{ review.pred*20 }}%;"></div>
-    </div>
-  </div>
-</div>
 </div>
 {% endverbatim %}

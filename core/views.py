@@ -1,4 +1,5 @@
 import os
+import random
 import subprocess
 import simplejson
 
@@ -40,12 +41,34 @@ def get_prediction(request):
 
         return HttpResponse(simplejson.dumps(response_dict), mimetype='application/; charset=utf-8')
 
-def get_review(request, count):
+def get_cached_prediction(request, count):
+    if count > 30:
+        count = 30
+
+    #with open(settings.TOTAL_SAMPLE) as totalf:
+    with open(settings.SAMPLE) as totalf:
+        lines = totalf.readlines()
+        random.shuffle(lines)
+        lines = lines[:count]
+
+        response_dict = {}
+
+        # original, pred, code, text
+        response_dict['data'] = [{'poster': poster_url(line.split()[2]),
+                                  'code':line.split()[2],
+                                  'original':line.split()[0],
+                                  'pred':line.split()[1],
+                                  'text':' '.join(line.split()[3:])} for line in lines]
+        return HttpResponse(simplejson.dumps(response_dict), mimetype='application/; charset=utf-8')
+
+def get_review(request, count = 30):
     global environmentDict, predictCommand
+    if count > 30:
+        count = 30
 
     response_dict = {}
 
-    get_sample(20)
+    get_sample(count)
     subprocess.call(predictCommand, env=environmentDict)
 
     samples = readSampleFile()
