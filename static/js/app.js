@@ -24,12 +24,15 @@ var reviewApp = angular.module('reviewApp',['wu.masonry','angular-loading-bar'])
 }]);
 var reviews = [];
 
-var prediction = function() {
-  $('#text')
-};
-
 reviewApp.controller('reviewController', function($scope, $http) {
   $scope.reviews = [];
+  $scope.sentences = [];
+
+  $scope.prediction = function() {
+    $http.post('/r/predict', {'text': $('#text')[0].value}).success(function(data) {
+      $scope.sentences.push(data.data[0]);
+    });
+  };
 
   //$http.get('/r/get/20').success(function(data) {
   $http.get('/r/cached/30').success(function(data) {

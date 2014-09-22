@@ -27,12 +27,14 @@ def get_prediction(request):
     global environmentDict, predictCommand
     template = 'index.html'
 
-    if not request.POST:
-        return render(request, template)
-    else:
+    if request.method == 'POST':
         response_dict = {}
 
-        text = request.POST.get("text","")
+        text = request.POST.get("text","").encode('utf-8')
+        print "text : " + text
+
+        if text == "":
+            text = "음악이 아쉽다"
 
         with open(settings.TEST, 'w') as predict:
             predict.write('1 1 |f %s |a %s' % (text, len(text)))
@@ -48,6 +50,8 @@ def get_prediction(request):
         response_dict['data'] = [{'text':text, 'pred':pred} for text,pred in zip(samples, predictions)]
 
         return HttpResponse(simplejson.dumps(response_dict), mimetype='application/; charset=utf-8')
+    else:
+        return render(request, template)
 
 def get_cached_prediction(request, count):
     if count > 30:

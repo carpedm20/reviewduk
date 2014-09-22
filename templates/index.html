@@ -25,9 +25,11 @@
       </div>
       <div class="media col-sm-8 col-sm-offset-2">
         <h3>Result</h3>
-        <div class="panel panel-default">
+        <div class="panel panel-default" ng-repeat="sentence in sentences">
           <div class="panel-body">
-            Control padding and rounded corners with two optional modifier classes.
+            {% verbatim %}
+              {{ sentence.text }}
+            {% endverbatim %}
           </div>
         </div>
       </div>
