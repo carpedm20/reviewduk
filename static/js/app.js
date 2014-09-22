@@ -50,7 +50,7 @@ var reviewApp = angular.module('reviewApp',['wu.masonry','angular-loading-bar'])
           var container = document.querySelector('#reviews');
           var msnry = new Masonry( container, {
             itemSelector: '.review',
-            columnWidth: '.col-md-5',
+            columnWidth: '.col-md-6',
             gutter: 0
           });
         });
