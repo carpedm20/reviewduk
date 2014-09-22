@@ -22,7 +22,7 @@ MODEL_DIR = 'vw_models'
 
 SAMPLE = MODEL_DIR + "/sample.vw"
 TOTAL_SAMPLE = MODEL_DIR + "/total_sample.vw"
-MODEL = MODEL_DIR + "/w_model.vw"
+MODEL = MODEL_DIR + "/n_model.vw"
 TRAIN = MODEL_DIR + "/n_train.vw"
 PREDICT = MODEL_DIR + "/predict.vw"
 TEST = MODEL_DIR + "/test.vw"
