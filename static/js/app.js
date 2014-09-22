@@ -1,5 +1,7 @@
 'use strict';
 
+var global;
+
 var reviewApp = angular.module('reviewApp',['wu.masonry','angular-loading-bar'])
 .directive('reviewDirective', ['$timeout', function($timeout) {
   return function(scope, element, attrs) {
@@ -21,7 +23,12 @@ var reviewApp = angular.module('reviewApp',['wu.masonry','angular-loading-bar'])
       }, 0, false);
     }
   };
-}]);
+}]).filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+});
+
 var reviews = [];
 
 reviewApp.controller('reviewController', function($scope, $http) {
@@ -29,8 +36,19 @@ reviewApp.controller('reviewController', function($scope, $http) {
   $scope.sentences = [];
 
   $scope.prediction = function() {
-    $http.post('/r/predict', {'text': $('#text')[0].value}).success(function(data) {
-      $scope.sentences.push(data.data[0]);
+    //$http.post('/r/predict', data).success(function(data) {
+    $http({url:'/r/predict',
+           data: {text: $('#text')[0].value},
+           method: 'POST',
+           transformRequest: function(obj) {
+             var str = [];
+             for(var p in obj)
+             str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+             return str.join("&");
+           },
+           headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+    }).success(function(data) {
+      $scope.sentences.push({text:data.data[0].text[1], pred:data.data[0].pred});
     });
   };
 

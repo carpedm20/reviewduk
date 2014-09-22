@@ -31,7 +31,6 @@ def get_prediction(request):
         response_dict = {}
 
         text = request.POST.get("text","").encode('utf-8')
-        print "text : " + text
 
         if text == "":
             text = "음악이 아쉽다"
@@ -47,7 +46,7 @@ def get_prediction(request):
         samples = readSampleFile(settings.TEST)
         predictions = readPredictFile('out.vw')
 
-        response_dict['data'] = [{'text':text, 'pred':pred} for text,pred in zip(samples, predictions)]
+        response_dict['data'] = [{'text':text, 'pred':int(pred)} for text,pred in zip(samples, predictions)]
 
         return HttpResponse(simplejson.dumps(response_dict), mimetype='application/; charset=utf-8')
     else:

@@ -24,13 +24,23 @@
         </div>
       </div>
       <div class="media col-sm-8 col-sm-offset-2">
-        <h3>Result</h3>
-        <div class="panel panel-default" ng-repeat="sentence in sentences">
+        <div class="panel panel-default" ng-repeat="sentence in sentences | reverse">
+          {% verbatim %}
           <div class="panel-body">
-            {% verbatim %}
-              {{ sentence.text }}
-            {% endverbatim %}
+            {{ sentence.text }}
           </div>
+          <div class="panel-footer">
+            <div class="row">
+              <label class="col-sm-3">예측 평가</label>
+              <div class="progress col-sm-8">
+                <div ng-class="{'progress-bar-danger': sentence.pred=='1',
+                                'progress-bar-warning': sentence.pred=='2',
+                                'progress-bar-success': sentence.pred=='3',
+                                'progress-bar-info': sentence.pred=='5'}" class="progress-bar progress-bar-info" style="width: {{ sentence.pred*20 }}%;"></div>
+              </div>
+            </div>
+          </div>
+          {% endverbatim %}
         </div>
       </div>
     </div>
