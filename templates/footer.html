@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <footer id="footer" class="textleft">
   <!-- Footer Top Start -->
   <div id="contact" class="footer-top">
@@ -6,29 +8,25 @@
         <div class="about">
           <h3>The Team</h3>
           <div class="team row">
-            <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12">
-              <img class="img-rounded" src="img/matt-200px.png" alt="Matthew Zeiler">
+            <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
+              <img class="img-rounded" src="{% static 'img/TaehoonKim.jpg' %}" alt="Matthew Zeiler">
             </div>
-            <div class="col-lg-8 col-md-7 col-sm-6 col-xs-12">
-              Matthew Zeiler, PhD, studied machine learning and image recognition with
-              the pioneers of deep learning and convolutional neural networks.
-              His research produced the top
-              5 results in the 2013 ImageNet classification competition.
+            <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
+              드라마 '유령'을 보고 해킹에 빠진 컴덕.
+              단순히 해커의 언어라는 이유로 파이썬을 시작했고
+              그렇게 파이썬이라는 나라가 허락한 유일한 마약에 빠져 파이뽕에 취해있다.
+              취미는 역시 해킹. 가끔 파이썬 라이브러리를 만들거나 영화를 감상한다. 
             </div>
-            <!--
-            Clarifai aims to change the way
-            people interact with photographs by enabling the next generation of image
-            applications based on cutting-edge object recognition technology.
-            -->
           </div>
           <div class="team row">
-            <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12">
-              <img class="img-rounded" src="img/adam-1-200px.jpg" alt="Adam Berenzweig">
+            <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
+              <img class="img-rounded" src="{% static 'img/TaehoonKim.jpg' %}" alt="Matthew Zeiler">
             </div>
-            <div class="col-lg-8 col-md-7 col-sm-6 col-xs-12">
-              Adam Berenzweig, PhD, was a software engineer at Google for 10+ years where
-              he built the music recommender for Google Play.  Most recently he worked on
-              Goggles and visual search.
+            <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
+              드라마 '유령'을 보고 해킹에 빠진 컴덕.
+              단순히 해커의 언어라는 이유로 파이썬을 시작했고
+              그렇게 파이썬이라는 나라가 허락한 유일한 마약에 빠져 파이뽕에 취해있다.
+              취미는 역시 해킹. 가끔 파이썬 라이브러리를 만들거나 영화를 감상한다. 
             </div>
           </div>
         </div>
@@ -37,16 +35,16 @@
         <h3>Contact Us</h3>
         <div class="contact-us">
           <!-- <i class="glyph glyphicon-envelope"></i> -->
-          <p>Email: <a href="mailto:info@clarifai.com">info@clarifai.com</a></p>
+          <p>Email: <a href="mailto:info@reviewduk.com">info@reviewduk.com</a></p>
           <p>
-            <a href="https://twitter.com/clarifaiinc"><img src="img/Twitter_logo_blue_40.png" alt="Twitter"></a>
-            <a href="https://www.facebook.com/Clarifai"><img src="img/fb_icon_40.png" alt="Facebook"></a>
+          <a href="https://twitter.com/reviewduk"><img src="{% static 'img/tw_icon_40.png' %}" alt="Twitter"></a>
+            <a href="https://www.facebook.com/ReviewDuk"><img src="{% static 'img/fb_icon_40.png' %}" alt="Facebook"></a>
           </p>
         </div>
         <h3>Join Us</h3>
         <div>
           <p>We're hiring!</p>
-          <p>See <a href="jobs.html">Jobs at Clarifai</a> for details.</p>
+          <p>See <a href="jobs.html">Jobs at ReviewDuk</a> for details.</p>
         </div>
       </section>
     </div>
@@ -56,7 +54,7 @@
   <div class="footer-bottom">
     <div class="row">
       <div class="col-xs-8 col-xs-offset-1">© Copyright 2013-2014
-        <a href="index.html">Clarifai Inc.</a> All Rights Reserved.
+        <a href="index.html">ReviewDuk Inc.</a> All Rights Reserved.
       </div>
       <div class="col-xs-3">
         <a href="terms.html">Terms</a>&nbsp;&nbsp;

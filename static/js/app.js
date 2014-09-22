@@ -91,4 +91,6 @@ reviewApp.controller('reviewController', function($scope, $http) {
     reviews = data.data;
     $scope.reviews = data.data;
   });
+
+  $scope.prediction();
 });
