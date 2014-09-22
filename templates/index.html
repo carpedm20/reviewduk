@@ -3,48 +3,50 @@
 {% block content %}
   {% include 'intro.html' %}
 
-  <div id="demo" class="well text-center">
-    <div class="container">
-      <h3>Enter any senetence</h3>
-      <div class="media col-sm-8 col-sm-offset-2">
-        <a class="pull-left" href="#">
-          <img class="media-object img-rounded" data-src="holder.js/64x64" alt="64x64" src="https://avatars3.githubusercontent.com/u/3346407?v=2&s=460" style="width: 64px; height: 64px;">
-        </a>
-        <div class="media-body">
-          <form ng-submit="prediction()">
-            <div class="form-group">
-              <textarea class="form-control" id="text" placeholder="문장을 입력하세요" style="resize: vertical;" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-              <div class="pull-right">
-                <button type="submit" class="btn btn-block btn-sm btn-primary">감정!</button>
+  <section id="demo">
+    <div class="well text-center">
+      <div class="container">
+        <h3>Enter any senetence</h3>
+        <div class="media col-sm-8 col-sm-offset-2">
+          <a class="pull-left" href="#">
+            <img class="media-object img-rounded" data-src="holder.js/64x64" alt="64x64" src="https://avatars3.githubusercontent.com/u/3346407?v=2&s=460" style="width: 64px; height: 64px;">
+          </a>
+          <div class="media-body">
+            <form ng-submit="prediction()">
+              <div class="form-group">
+                <textarea class="form-control" id="text" placeholder="문장을 입력하세요" style="resize: vertical;" rows="3"></textarea>
               </div>
-            </div>
-          </form>
+              <div class="form-group">
+                <div class="pull-right">
+                  <button type="submit" class="btn btn-block btn-sm btn-primary">감정!</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-      <div class="media col-sm-8 col-sm-offset-2">
-        <div class="panel panel-default" ng-repeat="sentence in sentences | reverse">
-          {% verbatim %}
-          <div class="panel-body">
-            {{ sentence.text }}
-          </div>
-          <div class="panel-footer">
-            <div class="row">
-              <label class="col-sm-3">예측 평가</label>
-              <div class="progress col-sm-8">
-                <div ng-class="{'progress-bar-danger': sentence.pred=='1',
-                                'progress-bar-warning': sentence.pred=='2',
-                                'progress-bar-success': sentence.pred=='3',
-                                'progress-bar-info': sentence.pred=='5'}" class="progress-bar progress-bar-info" style="width: {{ sentence.pred*20 }}%;"></div>
+        <div class="media col-sm-8 col-sm-offset-2">
+          <div class="panel panel-default" ng-repeat="sentence in sentences | reverse">
+            {% verbatim %}
+            <div class="panel-body">
+              {{ sentence.text }}
+            </div>
+            <div class="panel-footer">
+              <div class="row">
+                <label class="col-sm-3">예측 평가</label>
+                <div class="progress col-sm-8">
+                  <div ng-class="{'progress-bar-danger': sentence.pred=='1',
+                                  'progress-bar-warning': sentence.pred=='2',
+                                  'progress-bar-success': sentence.pred=='3',
+                                  'progress-bar-info': sentence.pred=='5'}" class="progress-bar progress-bar-info" style="width: {{ sentence.pred*20 }}%;"></div>
+                </div>
               </div>
             </div>
+            {% endverbatim %}
           </div>
-          {% endverbatim %}
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <div class="container review-container">
     <div id="reviews" class="col-xs-12 col-md-12" style="padding: 0;">

@@ -32,8 +32,6 @@ var reviewApp = angular.module('reviewApp',['wu.masonry','angular-loading-bar'])
   return function(scope, element, attrs) {
     if (scope.$last){
       $timeout(function () {
-        $('.poster').tooltip();
-
         $('div.raty').raty({
           size: 20,
           path: '/static/img',
@@ -53,6 +51,8 @@ var reviewApp = angular.module('reviewApp',['wu.masonry','angular-loading-bar'])
             columnWidth: '.col-md-6',
             gutter: 0
           });
+
+          $('.poster').tooltip();
         });
       }, 2, false);
     }
