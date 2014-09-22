@@ -1,5 +1,30 @@
 'use strict';
 
+var data = {
+    labels: ["NAVER review", "Watcha review", "Harry Potter", "Lord of the Rings"],
+    datasets: [
+        {
+            label: "My First dataset",
+            fillColor: "rgba(220,220,220,0.5)",
+            strokeColor: "rgba(220,220,220,0.8)",
+            highlightFill: "rgba(220,220,220,0.75)",
+            highlightStroke: "rgba(220,220,220,1)",
+            data: [51114728, 27556222, 1084000, 473000]
+        },
+        {
+            label: "My Second dataset",
+            fillColor: "rgba(151,187,205,0.5)",
+            strokeColor: "rgba(151,187,205,0.8)",
+            highlightFill: "rgba(151,187,205,0.75)",
+            highlightStroke: "rgba(151,187,205,1)",
+            data: [7594020, 2523652, 0, 0]
+        }
+    ]
+};
+var ctx = document.getElementById("myChart").getContext("2d");
+var myBarChart = new Chart(ctx).Bar(data, {scaleShowLabels: true});
+
+
 var global;
 
 var reviewApp = angular.module('reviewApp',['wu.masonry','angular-loading-bar'])
@@ -8,11 +33,7 @@ var reviewApp = angular.module('reviewApp',['wu.masonry','angular-loading-bar'])
     if (scope.$last){
       $timeout(function () {
         $('.poster').tooltip();
-        /*var container = document.querySelector('#reviews');
-        var msnry = new Masonry( container, {
-          itemSelector: '.review',
-          columnWidth: '.review',                
-        });*/
+
         $('div.raty').raty({
           size: 20,
           path: '/static/img',
@@ -21,6 +42,19 @@ var reviewApp = angular.module('reviewApp',['wu.masonry','angular-loading-bar'])
           }
         });
       }, 0, false);
+
+      $timeout(function () {
+        var imgLoad = imagesLoaded($('.poster'));
+        imgLoad.on( 'always', function( instance ) {
+          console.log('ALWAYS - all images have been loaded');
+          var container = document.querySelector('#reviews');
+          var msnry = new Masonry( container, {
+            itemSelector: '.review',
+            columnWidth: '.col-md-5',
+            gutter: 0
+          });
+        });
+      }, 2, false);
     }
   };
 }]).filter('reverse', function() {
@@ -53,7 +87,7 @@ reviewApp.controller('reviewController', function($scope, $http) {
   };
 
   //$http.get('/r/get/20').success(function(data) {
-  $http.get('/r/cached/30').success(function(data) {
+  $http.get('/r/cached/50').success(function(data) {
     reviews = data.data;
     $scope.reviews = data.data;
   });

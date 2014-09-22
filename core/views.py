@@ -55,8 +55,8 @@ def get_prediction(request):
         return render(request, template)
 
 def get_cached_prediction(request, count):
-    if count > 30:
-        count = 30
+    if count > 50:
+        count = 50
 
     #with open(settings.TOTAL_SAMPLE) as totalf:
     with open(settings.SAMPLE) as totalf:

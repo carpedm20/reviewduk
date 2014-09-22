@@ -47,8 +47,8 @@
   </div>
 
   <div class="container review-container">
-    <div id="reviews" class="col-xs-12" masonry="{ transitionDuration: '0.4s' }">
-      <div class="review col-md-6" ng-repeat="review in reviews" review-directive>
+    <div id="reviews" class="col-xs-12 col-md-11 col-md-offset-1" masonry="{ transitionDuration: '0.4s' }">
+      <div class="review col-md-5 col-xs-12" ng-repeat="review in reviews" review-directive>
         {% include 'review.html' %}
       </div>
     </div>
