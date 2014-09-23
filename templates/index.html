@@ -7,9 +7,9 @@
     <div class="well text-center">
       <div class="container">
         <h3>Enter any senetences</h3>
-        <div class="col-xs-8 col-xs-offset-2 well" style="background-color:#fff; margin-bottom: 0px;">
+        <div class="col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0 well" style="background-color:#fff; margin-bottom: 0px;">
           <p>The progress bar means the sentiment of a sentence.<br/>The more a progress bar is filled, the more a sentence is positive</p>
-          <p>문장이 긍정적일수록 긍정바가 꽉 차게 됩니다.</p>
+          <p>문장이 긍정적일수록 긍정바가 꽉 차게 됩니다 :)</p>
         </div>
         <div class="media col-sm-8 col-sm-offset-2">
           <a class="pull-left" href="#">
@@ -54,6 +54,11 @@
   </section>
 
   <div class="container review-container">
+    <div class="row text-center">
+      <h3>Sentiment analysis for movie reviews</h3>
+      <p>영화 리뷰 감정 분석기</p>
+    </div>
+    <br/>
     <div id="reviews" class="col-xs-12 col-md-12" style="padding: 0;">
       <div class="review col-md-6 col-xs-12" ng-repeat="review in reviews" review-directive>
         {% include 'review.html' %}
