@@ -70,3 +70,7 @@ p {
 .team {
   padding-bottom: 20px;
 }
+
+.tooltip-arrow {
+  top: initial !important;
+}

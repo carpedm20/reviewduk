@@ -1,5 +1,7 @@
 'use strict';
 
+var global;
+
 var data = {
     labels: ["NAVER review", "Watcha review", "Harry Potter", "Lord of the Rings"],
     datasets: [
@@ -23,9 +25,6 @@ var data = {
 };
 var ctx = document.getElementById("myChart").getContext("2d");
 var myBarChart = new Chart(ctx).Bar(data, {scaleShowLabels: true});
-
-
-var global;
 
 var reviewApp = angular.module('reviewApp',['wu.masonry','angular-loading-bar'])
 .directive('reviewDirective', ['$timeout', function($timeout) {
