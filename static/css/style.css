@@ -41,6 +41,19 @@ p {
 }
 
 /* Customize container */
+@media screen and (max-width: 500px) {
+  /* Phone Styles */
+  .poster {
+    width: 50px !important;
+  }
+}
+@media screen and (max-width: 700px) {
+  /* Tablet Styles */
+  .poster {
+    width: 80px !important;
+  }
+}
+
 @media (min-width: 768px) {
   .container {
     min-width: 730px;
