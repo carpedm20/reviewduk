@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.http import HttpResponseRedirect, HttpResponse
 
 from django.contrib import admin
 admin.autodiscover()

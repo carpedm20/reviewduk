@@ -90,6 +90,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/carpedm20/static/'
+
 LOGIN_URL = '/account/sign_in/'
 LOGOUT_URL = '/account/sign_out/'
 
@@ -104,9 +106,8 @@ TEMPLATE_DIRS = (
 )
 
 if DEBUG:
-    MEDIA_URL = '/media/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'static', 'static-only')
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, 'static'),
     )

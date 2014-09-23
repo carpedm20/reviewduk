@@ -3,7 +3,7 @@
 var global;
 
 var data = {
-    labels: ["NAVER review", "Watcha review", "Harry Potter", "Lord of the Rings"],
+    labels: ["NxVxR review", "Wxtchx review", "Harry Potter", "Lord of the Rings"],
     datasets: [
         {
             label: "My First dataset",
