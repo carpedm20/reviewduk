@@ -101,3 +101,12 @@ p {
 .panel-body {
   font-size: 0.9em !important;
 }
+
+#loading-bar .bar {
+  background: #fff !important;
+}
+
+#loading-bar-spinner .spinner-icon {
+  border-top-color: #fff !important;
+  border-left-color: #ddd !important;
+}
