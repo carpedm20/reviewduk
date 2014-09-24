@@ -83,18 +83,20 @@
     </div>
   </section>
 
-  <div class="container review-container">
-    <div class="row text-center">
-      <h3>Sentiment analysis for movie reviews</h3>
-      <p>영화 리뷰 감정 분석기</p>
-    </div>
-    <br/>
-    <div id="reviews" class="col-xs-12 col-md-12" style="padding: 0;">
-      <div class="review col-md-6 col-xs-12" ng-repeat="review in reviews" review-directive>
-        {% include 'review.html' %}
+  <section id="movie-demo">
+    <div class="container review-container">
+      <div class="row text-center">
+        <h3>Sentiment analysis for movie reviews</h3>
+        <p>영화 리뷰 감정 분석기</p>
+      </div>
+      <br/>
+      <div id="reviews" class="col-xs-12 col-md-12" style="padding: 0;">
+        <div class="review col-md-6 col-xs-12" ng-repeat="review in reviews" review-directive>
+          {% include 'review.html' %}
+        </div>
       </div>
     </div>
-  </div>
+  </section>
   
   {% include 'footer.html' %}
 {% endblock %}

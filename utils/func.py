@@ -1,13 +1,25 @@
+#-*- coding: utf-8 -*-
+import re
 import os
 import csv
 import random
 import requests
+import codecs
 from bs4 import BeautifulSoup
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "reviewduk.settings")
 from django.conf import settings
 
 parseStr = lambda x: float(x) if '.' in x else int(x)
+
+def clean(s):
+    s = s.encode('utf-8')
+    try:
+        return " ".join(re.findall(r'[가-힣\w]+', s, flags=re.UNICODE|re.LOCALE)).decode('utf-8').lower()
+    except:
+        #print "Error : %s" % s
+        return False
+    #return " ".join(s.split())
 
 def poster_url(code):
     b = BeautifulSoup(requests.get('http://movie.naver.com/movie/bi/mi/photoViewPopup.nhn?movieCode='+code).text)
