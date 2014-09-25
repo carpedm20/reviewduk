@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 import re
-import os
+import os, sys
 import csv
 import random
 import requests
@@ -13,11 +13,16 @@ from django.conf import settings
 parseStr = lambda x: float(x) if '.' in x else int(x)
 
 def clean(s):
-    s = s.encode('utf-8')
+    try:
+        s = s.encode('utf-8')
+    except:
+        pass
     try:
         return " ".join(re.findall(r'[가-힣\w]+', s, flags=re.UNICODE|re.LOCALE)).decode('utf-8').lower()
-    except:
-        #print "Error : %s" % s
+    except Exception as e:
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        print(exc_type, fname, exc_tb.tb_lineno)
         return False
     #return " ".join(s.split())
 
@@ -49,6 +54,7 @@ def readSampleFile(file_name = settings.SAMPLE):
 
 def readPredictFile(file_name = settings.PREDICT):
     y_pred = []
+
     with open(file_name, 'rb') as csvfile:
         predictions = csv.reader(csvfile, delimiter=' ', quotechar='|')
         for row in predictions:

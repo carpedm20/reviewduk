@@ -3,6 +3,7 @@ import os
 import random
 import subprocess
 import simplejson
+import codecs
 
 from django.conf import settings
 from django.http import HttpResponse
@@ -40,13 +41,13 @@ def get_prediction(request):
             #random.shuffle(reviews)
             #text = reviews[0]
         else:
-            vw_text = '1 1 |f %s |a %s' % (clean(text), len(text))
+            vw_text = '1 1 |f %s |a %s' % (text.replace(',',''), len(text))
 
         with open(settings.TEST, 'w') as predict:
             predict.write(vw_text)
 
         command = ("vw -t -d %s -i %s -p %s" % (settings.TEST,
-                                                settings.MODEL,
+                                                'vw_models/w_model.vw',
                                                 'out.vw')).split(' ')
         subprocess.call(command, env=environmentDict, stdout=subprocess.PIPE)
 
