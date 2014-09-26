@@ -5,7 +5,7 @@ Korean sentiment analyzer learned from Logistic regression with Movie reviews.
 
 This project is based on [MovieTag](https://github.com/carpedm20/movietag).
 
-Yes, there is a [Demo](http://pail.unist.ac.kr:8080)
+Yes, there is a [demo](http://pail.unist.ac.kr:8080)
 
 
 Development History
