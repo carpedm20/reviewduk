@@ -2,7 +2,6 @@
 
 var global;
 
-var finished = Array();
 var data = {
     labels: ["NxVxR review", "Wxtchx review", "Harry Potter", "Lord of the Rings"],
     datasets: [
@@ -55,57 +54,41 @@ var reviewApp = angular.module('reviewApp',['wu.masonry','angular-loading-bar'])
 
           $('.poster').tooltip();
         });
-       
         var $meters = $(".progress-bar");
-        $meters.bind('inview', function (event, visible) {
-          if (visible == true) {
-            var $el = $(this);
-            var origWidth = $el.width();
-
-            if (finished.indexOf($el[0].id) == -1) {
-              var origWidth = $el.width();
-              $el.css("width",$el.attr('data')+"%");
-              finished.push($el[0].id);
-              //$queue.queue(function(next) {
-              global=$el;
-              
-              //$el.animate({width: origWidth}, "slow", "swing");
-            };
-          }
-        });
-        /*$meters.each(function() {
+        $meters.each(function() {
           var $el = $(this);
         });
-        $(function() {
-          var $meters = $(".progress-bar");
-          //var $section = $('#movie-demo');
-          var $queue = $({});
-          
-          $(document).bind('scroll', function(ev) {
-            var scrollOffset = $(document).scrollTop();
+      }, 1, false);
+
+    var finished_meter = Array();
+    $(function() {
+        var $meters = $(".progress-bar");
+        //var $section = $('#movie-demo');
+        var $queue = $({});
+        
+        $(document).bind('scroll', function(ev) {
+          var scrollOffset = $(document).scrollTop();
             $meters.each(function() {
               var $el = $(this);
               
               var containerOffset = $el.offset().top - window.innerHeight;
               var scrollOffset = $(document).scrollTop();
 
-              if (finished.indexOf($el[0].id) == -1 && scrollOffset > containerOffset) {
-                finished.push($el[0].id);
+              if (finished.indexOf($el) == -1 && scrollOffset > containerOffset) {
                 var origWidth = $el.width();
-                $el.css("width",0);
+                $el.width(0);
 
                 //$queue.queue(function(next) {
-                global=$el;
-                $el.animate({width: origWidth}, 100000, "swing");
+                $el.animate({width: origWidth}, "slow", "swing");
                 console.log("123");
                 //});
                 // unbind event not to load scrolsl again
                 //$(document).unbind('scroll');
               }
             });
-          });
-        });*/ 
-      }, 1, false);
+        
+        });
+      }); 
     }
   };
 }]).filter('reverse', function() {
