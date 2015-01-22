@@ -17,6 +17,12 @@ Development History
 4. Build landing page using `Django`
 
 
+Video demo
+----------
+
+[Youtube link](http://www.youtube.com/watch?v=nKyt3jo2Hno)
+
+
 Screenshot
 ----------
 
