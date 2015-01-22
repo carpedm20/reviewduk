@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<html ng-app="reviewApp" ng-controller="reviewController" ng-csp>
+<html ng-app="reviewApp" ng-controller="reviewController" ng-csp xmlns:ng="http://angularjs.org">
   <head>
     <meta charset="utf-8">
     <title>ReviewDuk</title>
@@ -38,6 +38,22 @@
     <meta name="og:description" content="세상의 모든 리뷰에서 감성을 찾다"/>
     <meta name="og:url" content="http://pail.unist.ac.kr:8080/"/>
 
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!--[if lte IE 8]>
+    <script>
+      document.createElement('ng-include');
+      document.createElement('ng-pluralize');
+      document.createElement('ng-view');
+      document.createElement('ng:include');
+      document.createElement('ng:pluralize');
+      document.createElement('ng:view');
+    </script>
+  <![endif]-->
+  <!--[if lt IE 8]>
+    <script src="js/json2.js"></script>
+  <![endif]-->
   </head>
 
   <body>
