@@ -49,6 +49,9 @@ def get_prediction(request):
         command = ("vw -t -d %s -i %s -p %s" % (settings.TEST,
                                                 'vw_models/w_model.vw',
                                                 'out.vw')).split(' ')
+        print
+        print " ========> " + ' '.join(command)
+        print
         subprocess.call(command, env=environmentDict, stdout=subprocess.PIPE)
 
         samples = readSampleFile(settings.TEST)
