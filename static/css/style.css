@@ -18,6 +18,21 @@ p {
   line-height: 1.6;
 }
 
+.navbar-nav>li>a {
+  padding: 15px 21px;
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 23px;
+}
+
+.navbar-brand {
+  height: 53px;
+  padding: 14px 21px;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.042;
+}
+
 .navbar-inverse .navbar-collapse {
   border-color: #fff !important;
 }
