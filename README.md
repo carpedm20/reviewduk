@@ -1,26 +1,15 @@
 ReviewDuk
 =========
 
-Korean sentiment analyzer learned from Logistic regression with Movie reviews.
+Korean sentiment analyzer learned by
 
-This project is based on [MovieTag](https://github.com/carpedm20/movietag).
+- Korean morphological analysis (형태소 분석)
+- Korean sentence structure analysis (구문 분석)
+- Logistic regression and Gradient Boosting for regression
 
-Yes, there is a [demo](http://pail.unist.ac.kr:8080)
+The model is based on this [paper](http://nlp.stanford.edu/~socherr/EMNLP2013_RNTN.pdf)
 
-
-Development History
--------------------
-
-1. Parse movie reviews using [scrapy](http://scrapy.org/)
-2. Text processing using `Python`
-3. Logistic regression using [vowpal wabbit](https://github.com/JohnLangford/vowpal_wabbit)
-4. Build landing page using `Django`
-
-
-Video demo
-----------
-
-[Youtube link](http://www.youtube.com/watch?v=nKyt3jo2Hno)
+[demo](http://pail.unist.ac.kr:8080), [youtube](http://www.youtube.com/watch?v=nKyt3jo2Hno)
 
 
 Screenshot
@@ -37,6 +26,6 @@ Screenshot
 Copyright
 ---------
 
-Copyright © 2014 [Kim Tae Hoon](http://carpedm20.github.io).
+Copyright © 2015 [Kim Tae Hoon](https://carpedm20.github.io).
 
 The MIT License (MIT)
