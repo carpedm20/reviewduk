@@ -7,8 +7,6 @@ Korean sentiment analyzer learned by
 - Korean sentence structure analysis (구문 분석)
 - Logistic regression and Gradient Boosting for regression
 
-The model is based on this [paper](http://nlp.stanford.edu/~socherr/EMNLP2013_RNTN.pdf)
-
 [demo](http://pail.unist.ac.kr:8080), [youtube](http://www.youtube.com/watch?v=nKyt3jo2Hno)
 
 
